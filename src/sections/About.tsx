@@ -1,0 +1,5 @@
+import { motion } from 'framer-motion'
+import { profile } from '../data/profile'
+import { SectionHeading } from '../components/SectionHeading'
+
+export function About() { return <section id="about" className="section about"><SectionHeading index="02" eyebrow="ABOUT / PROFILE" title="Curious by nature. Practical by choice."/><div className="about-grid"><motion.div className="about-image" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }}><img src={`${import.meta.env.BASE_URL}images/mahesh-profile.jpg`} alt="Portrait of P. Mahesh Babu" loading="lazy"/><span>TECHNOLOGY / PEOPLE / PROGRESS</span></motion.div><div className="about-copy"><p className="about-lead">I turn technical curiosity into <em>useful systems</em> and dependable support.</p>{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<p className="ai-note">{profile.aiDisclosure}</p></div></div><div className="stats qualitative">{profile.highlights.map((highlight) => <div key={highlight}><strong>•</strong><span>{highlight}</span></div>)}</div></section> }

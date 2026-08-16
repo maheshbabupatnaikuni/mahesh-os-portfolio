@@ -1,0 +1,5 @@
+export const experience = [
+  { period: 'PRACTICAL EXPOSURE', title: 'IT Operations and Application Development Exposure', organisation: null, description: 'Worked on practical IT department activities including maintaining asset information, collecting system specifications, tracking IT-related invoices, supporting basic troubleshooting requirements and understanding internal operational workflows. Also developed web-based tools to improve asset and invoice tracking processes.' },
+  { period: 'JUL 2022 — MAY 2023', title: 'Technical Trainee (Apprentice)', organisation: "Dr. Reddy's Laboratories", description: 'Assisted with process documentation, technical record maintenance and routine operational activities. Gained exposure to industrial workflows, professional discipline and cross-functional collaboration.' },
+  { period: 'ACADEMIC', title: 'Academic Project Development', organisation: null, description: 'Contributed to requirement analysis, interface planning, implementation, testing, documentation and presentation of academic software projects in a team environment.' },
+]
