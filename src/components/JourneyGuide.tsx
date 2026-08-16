@@ -24,7 +24,7 @@ export function JourneyGuide() {
     return () => observer.disconnect()
   }, [])
 
-  return <aside className="journey-guide" aria-label="Portfolio story progress">
+  return <aside className={`journey-guide${active === 'intro' ? ' intro-active' : ''}`} aria-label="Portfolio story progress">
     <span className="journey-title">YOUR JOURNEY</span>
     <div className="journey-track"><motion.i style={{ scaleY: progress, scaleX: progress }}/></div>
     <nav>{stages.map((stage) => <a key={stage.id} href={`#${stage.id}`} className={active === stage.id ? 'active' : ''} aria-current={active === stage.id ? 'step' : undefined}><b>{stage.chapter}</b><span>{stage.short}</span></a>)}</nav>
