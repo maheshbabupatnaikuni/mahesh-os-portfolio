@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { visibleCertifications } from '../data/certifications'
 
 const stages = [
   { id: 'intro', short: 'Start', chapter: '01' },
   { id: 'about', short: 'Origin', chapter: '02' },
   { id: 'experience', short: 'Journey', chapter: '03' },
   { id: 'skills', short: 'Toolkit', chapter: '04' },
+  ...(visibleCertifications.length ? [{ id: 'certifications', short: 'Learning', chapter: '04+' }] : []),
   { id: 'projects', short: 'Work', chapter: '05' },
   { id: 'resume', short: 'Direction', chapter: '06' },
   { id: 'contact', short: 'Next', chapter: '07' },
