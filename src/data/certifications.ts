@@ -10,4 +10,4 @@ export const certifications: Certification[] = [
   { title: 'Red Hat Enterprise Linux 9 Fundamentals', issuer: 'edX', verified: false, visibility: false },
 ]
 
-export const visibleCertifications = certifications.filter((item) => item.visibility)
+export const visibleCertifications = certifications.filter((item) => item.visibility && item.verified)
