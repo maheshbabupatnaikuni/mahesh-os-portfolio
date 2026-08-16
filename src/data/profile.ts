@@ -22,7 +22,7 @@ export const profile = {
     'Through academic work and personal projects, I have used Python, Flask, Django, SQLite, HTML, CSS and JavaScript. I am also building stronger foundations in IP addressing, DNS, DHCP and connectivity troubleshooting.',
     'Right now, I am focused on learning consistently, documenting my work clearly and becoming someone a team can rely on for patient, practical technical support.',
   ],
-  aiDisclosure: 'I use Codex and ChatGPT as learning and development assistants for planning, coding support, debugging, testing and documentation. I review the output, test the work and keep improving my own understanding.',
+  aiDisclosure: 'I use AI-assisted tools as learning and development resources for planning, coding support, debugging, testing and documentation. I review the output, test the work and keep improving my own understanding.',
   highlights: ['Hands-on IT Support', 'Systems & Connectivity', 'Practical Web Tools', 'Open to Learn & Contribute'],
   email: 'maheshbabupatnaikuni@gmail.com',
   phone: '+91 6302521797',
