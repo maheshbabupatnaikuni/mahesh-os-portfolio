@@ -27,6 +27,7 @@ export const profile = {
   email: 'maheshbabupatnaikuni@gmail.com',
   phone: '+91 6302521797',
   linkedin: 'https://linkedin.com/in/maheshbabupatnaikuni',
+  portfolioUrl: 'https://maheshbabupatnaikuni.github.io/mahesh-os-portfolio/',
   github: 'https://github.com/maheshbabupatnaikuni' as string | null,
   location: 'Bengaluru, Karnataka, India',
   hometown: 'Vizianagaram, Andhra Pradesh, India',
