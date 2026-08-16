@@ -1,14 +1,40 @@
-export type SkillGroup = { category: string; skills: { name: string; proficiencyLabel?: string; description: string }[] }
+export type SkillGroup = {
+  category: string
+  context: string
+  skills: { name: string; proficiencyLabel: string; description: string }[]
+}
 
 const skill = (name: string, proficiencyLabel: string, description: string) => ({ name, proficiencyLabel, description })
+
 export const skillGroups: SkillGroup[] = [
-  { category: 'Programming', skills: [skill('Core Java', 'Foundational', 'Object-oriented programming and core language concepts.'), skill('Python', 'Foundational / Project Exposure', 'Flask, Django and automation-oriented project work.'), skill('JavaScript', 'Basic', 'Browser interactions and application logic.'), skill('SQL', 'Foundational', 'Relational queries and database fundamentals.')] },
-  { category: 'Frontend', skills: [skill('HTML', 'Project Exposure', 'Semantic web structure.'), skill('CSS', 'Project Exposure', 'Responsive layouts and interface styling.'), skill('JavaScript', 'Basic', 'Interactive browser behaviour.'), skill('Responsive Web Interfaces', 'Project Exposure', 'Layouts that adapt across devices.')] },
-  { category: 'Backend', skills: [skill('Flask', 'Project Exposure', 'Python web applications and internal tools.'), skill('Django', 'Academic Project Exposure', 'Structured Python web development.'), skill('REST API Fundamentals', 'Foundational', 'HTTP-based application communication.'), skill('Database Integration', 'Project Exposure', 'Connecting application workflows to relational data.')] },
-  { category: 'Database', skills: [skill('SQLite', 'Project Exposure', 'Embedded relational storage used in projects.'), skill('SQL', 'Foundational', 'Data queries and relational concepts.'), skill('DBMS Fundamentals', 'Foundational', 'Normalization, keys and transaction concepts.')] },
-  { category: 'Core Computer Science', skills: [skill('Operating Systems', 'Foundational', 'Processes, memory, files and system concepts.'), skill('Computer Networks', 'Foundational', 'Network layers and communication fundamentals.'), skill('DBMS', 'Foundational', 'Relational database principles.'), skill('Data Structures & Algorithms', 'Basic', 'Core structures and problem-solving concepts.')] },
-  { category: 'IT Support', skills: ['Windows Troubleshooting', 'Hardware Fundamentals', 'Software Installation', 'MS Office Support', 'System Information Collection', 'Technical Issue Identification', 'User Support', 'Basic Asset Administration'].map((name) => skill(name, 'Hands-on Exposure', 'Practical support and IT operations exposure.')) },
-  { category: 'Networking', skills: ['TCP/IP Fundamentals', 'IP Address Configuration', 'DNS Basics', 'Router & Connectivity Troubleshooting', 'Hostname & Network Information Collection'].map((name) => skill(name, 'Foundational', 'Basic network setup, information collection and issue identification.')) },
-  { category: 'Tools', skills: ['Visual Studio Code', 'Git', 'GitHub', 'Microsoft Excel', 'Microsoft Word', 'Microsoft PowerPoint', 'ChatGPT', 'Codex', 'AI-assisted Development Tools'].map((name) => skill(name, 'Working Knowledge', 'Used for development, productivity, documentation or collaboration.')) },
-  { category: 'AI & Productivity', skills: ['Prompt Engineering', 'AI-assisted Requirement Analysis', 'AI-assisted Debugging', 'Technical Documentation', 'Test Case Preparation', 'Workflow Planning'].map((name) => skill(name, 'Applied Workflow', 'Applied as part of planning, implementation, review and documentation workflows.')) },
+  {
+    category: 'Building Web Tools',
+    context: 'Technologies I have used while building my three main projects.',
+    skills: [
+      skill('Python', 'Project exposure', 'Used for application logic in Flask and Django projects.'),
+      skill('Flask', 'Project exposure', 'Used to build practical internal tracking applications.'),
+      skill('Django', 'Academic project', 'Used in the VerifyCerts certificate verification project.'),
+      skill('HTML · CSS · JavaScript', 'Basic working knowledge', 'Used to structure, style and add interactions to web interfaces.'),
+    ],
+  },
+  {
+    category: 'Data & IT Operations',
+    context: 'Skills connected to asset records, invoices and day-to-day technical support.',
+    skills: [
+      skill('SQLite & SQL', 'Foundational / project use', 'Used to store and query structured application data.'),
+      skill('IT Asset Administration', 'Hands-on exposure', 'Collecting system details and maintaining asset information.'),
+      skill('Windows Troubleshooting', 'Hands-on exposure', 'Identifying common desktop, software and user issues.'),
+      skill('Technical Documentation', 'Working knowledge', 'Recording requirements, test cases, workflows and project notes.'),
+    ],
+  },
+  {
+    category: 'Development Workflow',
+    context: 'Tools I use to understand, build, test and improve my work.',
+    skills: [
+      skill('Git & GitHub', 'Working knowledge', 'Version control, repositories and project publishing.'),
+      skill('Visual Studio Code', 'Working knowledge', 'Primary editor for project development and debugging.'),
+      skill('AI-assisted Development', 'Guided workflow', 'Codex and ChatGPT support requirement analysis, coding, testing and documentation.'),
+      skill('Microsoft Office', 'Working knowledge', 'Excel, Word and PowerPoint for operational and academic work.'),
+    ],
+  },
 ]

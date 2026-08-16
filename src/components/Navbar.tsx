@@ -2,7 +2,7 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const links = [['01', 'INTRO'], ['02', 'ABOUT'], ['03', 'SKILLS'], ['04', 'EXPERIENCE'], ['05', 'PROJECTS'], ['06', 'CONTACT']]
+const links = [['01', 'INTRO'], ['02', 'ABOUT'], ['03', 'EXPERIENCE'], ['04', 'SKILLS'], ['05', 'PROJECTS'], ['07', 'CONTACT']]
 
 export function Navbar() {
   const [open, setOpen] = useState(false), [scrolled, setScrolled] = useState(false), [active, setActive] = useState('INTRO')
