@@ -4,6 +4,8 @@ A premium, responsive personal portfolio for P. Mahesh Babu, designed as a cinem
 
 Live site: [maheshbabupatnaikuni.github.io/mahesh-os-portfolio](https://maheshbabupatnaikuni.github.io/mahesh-os-portfolio/)
 
+Resume-ready QR files are available in `public/share/` as high-resolution PNG and scalable SVG assets.
+
 ## Technology
 
 - React, TypeScript and Vite
