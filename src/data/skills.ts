@@ -43,7 +43,7 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       skill('Git & GitHub', 'Working knowledge', 'Version control, repositories and project publishing.'),
       skill('Visual Studio Code', 'Working knowledge', 'Primary editor for project development and debugging.'),
-      skill('AI-assisted Development', 'Guided workflow', 'Codex and ChatGPT support requirement analysis, coding, testing and documentation.'),
+      skill('AI-assisted Development', 'Guided workflow', 'AI resources support requirement analysis, coding, testing and documentation.'),
       skill('Microsoft Office', 'Working knowledge', 'Excel, Word and PowerPoint for operational and academic work.'),
     ],
   },
