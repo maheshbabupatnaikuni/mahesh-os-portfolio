@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { visibleCertifications } from '../data/certifications'
+import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
 
 const stages = [
   { id: 'intro', short: 'Start', chapter: '01' },
@@ -15,8 +16,10 @@ const stages = [
 
 export function JourneyGuide() {
   const [active, setActive] = useState('intro')
+  const reducedMotion = useReducedMotionPreference()
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28 })
+  const springProgress = useSpring(scrollYProgress, { stiffness: 120, damping: 28 })
+  const progress = reducedMotion ? scrollYProgress : springProgress
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && setActive(entry.target.id)), { rootMargin: '-42% 0px -48%' })

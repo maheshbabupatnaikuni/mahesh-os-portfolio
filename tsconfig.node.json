@@ -2,10 +2,13 @@
   "compilerOptions": {
     "composite": true,
     "skipLibCheck": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "src/data/metadata.ts", "src/data/profile.ts", "src/data/projects.ts"]
 }

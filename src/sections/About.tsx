@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { profile } from '../data/profile'
 import { SectionHeading } from '../components/SectionHeading'
+import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
 
 const storyChapters = [
   { label: 'WHERE I STARTED', title: 'Electrical foundations', text: 'My diploma in Electrical and Electronics Engineering first taught me to see a system as connected parts, not separate problems.' },
@@ -9,14 +10,15 @@ const storyChapters = [
 ]
 
 export function About() {
+  const reducedMotion = useReducedMotionPreference()
   return <section id="about" className="section about story-section">
     <SectionHeading index="02" eyebrow="THE BEGINNING / ABOUT" title="I started by asking how systems actually work."/>
     <div className="about-story">
-      <motion.div className="about-statement" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }}>
+      <motion.div className="about-statement" initial={reducedMotion ? false : { opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={reducedMotion ? { duration: 0 } : undefined}>
         <p className="about-lead">I’m still early in my career, so I prefer to show what I’m learning through <em>work I can explain</em>, test and improve.</p>
         <p>{profile.careerSummary}</p>
       </motion.div>
-      <div className="story-chapters">{storyChapters.map((chapter, index) => <motion.article key={chapter.label} initial={{ opacity: 0, x: 35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .45 }} transition={{ delay: index * .08 }}><span>{String(index + 1).padStart(2, '0')} / {chapter.label}</span><h3>{chapter.title}</h3><p>{chapter.text}</p></motion.article>)}</div>
+      <div className="story-chapters">{storyChapters.map((chapter, index) => <motion.article key={chapter.label} initial={reducedMotion ? false : { opacity: 0, x: 35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .45 }} transition={reducedMotion ? { duration: 0 } : { delay: index * .08 }}><span>{String(index + 1).padStart(2, '0')} / {chapter.label}</span><h3>{chapter.title}</h3><p>{chapter.text}</p></motion.article>)}</div>
     </div>
     <p className="ai-note">{profile.aiDisclosure}</p>
     <div className="stats qualitative">{profile.highlights.map((highlight) => <div key={highlight}><strong>•</strong><span>{highlight}</span></div>)}</div>
