@@ -1,9 +1,7 @@
-export type ResumeProfile = {
+export type ResumeDocument = {
   id: string
   title: string
-  roles: string
   file: string
-  available: boolean
 }
 
 export const profile = {
@@ -33,12 +31,7 @@ export const profile = {
   hometown: 'Vizianagaram, Andhra Pradesh, India',
   availability: 'Available to join immediately',
   targetRoles: ['Network Support', 'NOC Support', 'IT Support', 'Desktop Support', 'Technical Support', 'Application Support', 'System Administration', 'Cybersecurity Intern', 'Entry-Level Software Engineer'],
-  resumeProfiles: [
-    { id: 'software', title: 'Software Engineering Resume', roles: 'Associate Software Engineer · Entry-Level Software Engineer', file: '/resume/mahesh-babu-software-resume.pdf', available: false },
-    { id: 'application-support', title: 'Application Support Resume', roles: 'Application Support · Technical Support', file: '/resume/mahesh-babu-application-support-resume.pdf', available: false },
-    { id: 'it-support', title: 'IT Support Resume', roles: 'IT Support · Desktop Support · IT Executive · System Administration', file: '/resume/mahesh-babu-it-support-resume.pdf', available: false },
-    { id: 'cybersecurity', title: 'Cybersecurity Resume', roles: 'Cybersecurity Intern · Security Support', file: '/resume/mahesh-babu-cybersecurity-resume.pdf', available: false },
-  ] satisfies ResumeProfile[],
+  resume: { id: 'mahesh-babu', title: 'Mahesh Babu Resume', file: '/resume/MaheshBabu.pdf' } satisfies ResumeDocument,
   languages: [
     { name: 'Telugu', level: 'Native' },
     { name: 'English', level: 'Professional Working Proficiency' },

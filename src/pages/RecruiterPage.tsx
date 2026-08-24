@@ -19,10 +19,7 @@ const strongestEvidence = ['it-asset-management-system', 'blockchain-certificate
 
 export default function RecruiterPage() {
   const tracked = useRef(false)
-  const availableResumes = profile.resumeProfiles.filter((resume) => resume.available)
-  const primaryResume = availableResumes[0]
-  const resumeUrl = primaryResume ? `${import.meta.env.BASE_URL}${primaryResume.file.replace(/^\//, '')}` : null
-  const resumeRequest = `mailto:${profile.email}?subject=${encodeURIComponent('Request for role-specific resume')}`
+  const resumeUrl = `${import.meta.env.BASE_URL}${profile.resume.file.replace(/^\//, '')}`
 
   useEffect(() => {
     if (tracked.current) return
@@ -49,7 +46,7 @@ export default function RecruiterPage() {
           <div className="recruiter-location"><span>{profile.location}</span><span>{profile.availability}</span></div>
           <div className="recruiter-actions">
             <a href="#recruiter-projects" data-analytics-event="cta_click" data-analytics-name="view_projects" data-analytics-location="recruiter_hero">VIEW PROJECTS</a>
-            {resumeUrl ? <a href={resumeUrl} target="_blank" rel="noreferrer" data-analytics-event="resume_click" data-analytics-resume-id={primaryResume.id} data-analytics-action="view" data-analytics-location="recruiter_hero">VIEW RESUME</a> : <a href={resumeRequest} data-analytics-event="resume_click" data-analytics-action="request" data-analytics-location="recruiter_hero">REQUEST RESUME</a>}
+            <a href={resumeUrl} target="_blank" rel="noreferrer" data-analytics-event="resume_click" data-analytics-resume-id={profile.resume.id} data-analytics-action="view" data-analytics-location="recruiter_hero">VIEW RESUME</a>
             <a href="#recruiter-contact" data-analytics-event="cta_click" data-analytics-name="contact" data-analytics-location="recruiter_hero">CONTACT</a>
             <Link to="/" data-analytics-event="cta_click" data-analytics-name="story_mode" data-analytics-location="recruiter_hero">STORY MODE</Link>
           </div>
@@ -107,7 +104,7 @@ export default function RecruiterPage() {
       <section id="recruiter-contact" className="recruiter-contact" aria-labelledby="contact-title">
         <div><p>06 / RESUME & CONTACT</p><h2 id="contact-title">Let’s discuss the right opportunity.</h2><span>Open to relevant entry-level support and technology roles in Bengaluru.</span></div>
         <div className="recruiter-contact-actions">
-          {resumeUrl ? <><a href={resumeUrl} target="_blank" rel="noreferrer" data-analytics-event="resume_click" data-analytics-resume-id={primaryResume.id} data-analytics-action="view" data-analytics-location="recruiter_contact">VIEW RESUME</a><a href={resumeUrl} download data-analytics-event="resume_click" data-analytics-resume-id={primaryResume.id} data-analytics-action="download" data-analytics-location="recruiter_contact">DOWNLOAD RESUME</a></> : <a href={resumeRequest} data-analytics-event="resume_click" data-analytics-action="request" data-analytics-location="recruiter_contact">REQUEST ROLE-SPECIFIC RESUME</a>}
+          <a href={resumeUrl} target="_blank" rel="noreferrer" data-analytics-event="resume_click" data-analytics-resume-id={profile.resume.id} data-analytics-action="view" data-analytics-location="recruiter_contact">VIEW RESUME</a><a href={resumeUrl} download data-analytics-event="resume_click" data-analytics-resume-id={profile.resume.id} data-analytics-action="download" data-analytics-location="recruiter_contact">DOWNLOAD RESUME</a>
           <a href={`mailto:${profile.email}`} data-analytics-event="contact_click" data-analytics-method="email" data-analytics-location="recruiter_contact">EMAIL</a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" data-analytics-event="social_link_click" data-analytics-platform="linkedin" data-analytics-location="recruiter_contact">LINKEDIN</a>
           <Link to="/" data-analytics-event="cta_click" data-analytics-name="story_mode" data-analytics-location="recruiter_contact">PORTFOLIO STORY MODE</Link>
