@@ -5,12 +5,14 @@
 **Label:** P. Mahesh Babu — Portfolio  
 **URL:** https://maheshbabupatnaikuni.github.io/mahesh-os-portfolio/
 
+Use the source-specific UTM links in `ANALYTICS.md` when adding the portfolio to LinkedIn, Naukri, a resume, GitHub or another platform.
+
 ## QR assets
 
 - `public/share/mahesh-portfolio-qr.png` — 1200 px PNG for resumes and documents
 - `public/share/mahesh-portfolio-qr.svg` — scalable vector version for high-quality printing
 
-The QR opens the public portfolio URL above.
+The QR opens the public portfolio with `utm_source=qr`, `utm_medium=qr` and `utm_campaign=portfolio` so scans can be identified in GA4.
 
 ## Recommended resume placement
 
