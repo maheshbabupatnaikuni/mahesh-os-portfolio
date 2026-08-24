@@ -12,12 +12,12 @@ function setHeadTag(html: string, pattern: RegExp, tag: string) {
 
 function routePages() {
   return {
-    name: 'project-route-pages',
+    name: 'portfolio-route-pages',
     apply: 'build' as const,
     async closeBundle() {
       const template = await readFile('dist/index.html', 'utf8')
-      await Promise.all(projects.map(async (project) => {
-        const pathname = `/projects/${project.slug}`
+      const paths = ['/recruiter', ...projects.flatMap((project) => [`/projects/${project.slug}`, `/projects/${project.slug}/demo`])]
+      await Promise.all(paths.map(async (pathname) => {
         const metadata = getRouteMetadata(pathname)
         let html = template.replace(/<title>.*?<\/title>/, `<title>${escapeAttribute(metadata.title)}</title>`)
         html = setHeadTag(html, /<meta name="description"[^>]*>/, `<meta name="description" content="${escapeAttribute(metadata.description)}" />`)
@@ -32,7 +32,7 @@ function routePages() {
         html = setHeadTag(html, /<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${escapeAttribute(metadata.socialDescription)}" />`)
         html = setHeadTag(html, /<meta name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${escapeAttribute(metadata.imageUrl)}" />`)
         html = setHeadTag(html, /<meta name="twitter:image:alt"[^>]*>/, `<meta name="twitter:image:alt" content="${escapeAttribute(metadata.imageAlt)}" />`)
-        const outputDirectory = `dist/projects/${project.slug}`
+        const outputDirectory = `dist/${pathname.replace(/^\//, '')}`
         await mkdir(outputDirectory, { recursive: true })
         await writeFile(`${outputDirectory}/index.html`, html)
       }))
