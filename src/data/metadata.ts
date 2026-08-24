@@ -6,19 +6,22 @@ const homeDescription = 'Portfolio of P. Mahesh Babu, a Computer Science graduat
 const homeSocialDescription = 'IT support, web applications, system tools and practical software projects.'
 
 export function getRouteMetadata(pathname: string) {
-  const slug = pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1]
+  const demoMatch = pathname.match(/^\/projects\/([^/]+)\/demo\/?$/)
+  const slug = demoMatch?.[1] || pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1]
   const project = getProject(slug)
-  const relativePath = project ? `projects/${project.slug}/` : pathname.replace(/^\//, '')
+  const isRecruiter = /^\/recruiter\/?$/.test(pathname)
+  const isDemo = Boolean(demoMatch && project)
+  const relativePath = isRecruiter ? 'recruiter/' : isDemo ? `projects/${project?.slug}/demo/` : project ? `projects/${project.slug}/` : pathname.replace(/^\//, '')
 
   return {
-    title: project ? `${project.name} | P. Mahesh Babu` : homeTitle,
-    description: project?.summary || homeDescription,
-    socialDescription: project?.description || homeSocialDescription,
+    title: isRecruiter ? 'Recruiter Mode | P. Mahesh Babu' : isDemo ? `${project?.name} Demo | P. Mahesh Babu` : project ? `${project.name} | P. Mahesh Babu` : homeTitle,
+    description: isRecruiter ? 'A focused recruiter route for P. Mahesh Babu. The complete recruiter experience is being prepared.' : isDemo ? `Reserved interactive demo route for ${project?.name}. No unfinished functionality is presented as active.` : project?.summary || homeDescription,
+    socialDescription: isRecruiter ? 'Recruiter Mode foundation for P. Mahesh Babu.' : isDemo ? `Interactive demo route for ${project?.name}.` : project?.description || homeSocialDescription,
     canonicalUrl: new URL(relativePath, profile.portfolioUrl).href,
     imageUrl: project
       ? new URL(project.image.replace(/^\//, ''), profile.portfolioUrl).href
       : new URL('images/og-cover.svg', profile.portfolioUrl).href,
     imageAlt: project ? `${project.name} project overview` : 'P. Mahesh Babu portfolio',
-    type: project ? 'article' : 'website',
+    type: project && !isDemo ? 'article' : 'website',
   }
 }
