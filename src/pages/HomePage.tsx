@@ -11,7 +11,7 @@ import { Contact } from '../sections/Contact'
 import { visibleCertifications } from '../data/certifications'
 
 export default function HomePage() {
-  return <><JourneyGuide/><main className="story-main">
+  return <><JourneyGuide/><main id="main-content" className="story-main route-main" tabIndex={-1}>
     <Hero/>
     <StoryBridge chapter="02" label="First, understand where I started" target="about"/>
     <About/>
