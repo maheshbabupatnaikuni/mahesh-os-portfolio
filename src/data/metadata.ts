@@ -14,9 +14,9 @@ export function getRouteMetadata(pathname: string) {
   const relativePath = isRecruiter ? 'recruiter/' : isDemo ? `projects/${project?.slug}/demo/` : project ? `projects/${project.slug}/` : pathname.replace(/^\//, '')
 
   return {
-    title: isRecruiter ? 'Recruiter Mode | P. Mahesh Babu' : isDemo ? `${project?.name} Demo | P. Mahesh Babu` : project ? `${project.name} | P. Mahesh Babu` : homeTitle,
-    description: isRecruiter ? 'A focused recruiter route for P. Mahesh Babu. The complete recruiter experience is being prepared.' : isDemo ? `Reserved interactive demo route for ${project?.name}. No unfinished functionality is presented as active.` : project?.summary || homeDescription,
-    socialDescription: isRecruiter ? 'Recruiter Mode foundation for P. Mahesh Babu.' : isDemo ? `Interactive demo route for ${project?.name}.` : project?.description || homeSocialDescription,
+    title: isRecruiter ? 'Recruiter Overview | Mahesh Babu Patnaikuni' : isDemo ? `${project?.name} Demo | P. Mahesh Babu` : project ? `${project.name} | P. Mahesh Babu` : homeTitle,
+    description: isRecruiter ? 'A concise recruiter overview of Mahesh Babu Patnaikuni: IT support entry point, networking direction, practical project evidence, education and contact details.' : isDemo ? `Reserved interactive demo route for ${project?.name}. No unfinished functionality is presented as active.` : project?.summary || homeDescription,
+    socialDescription: isRecruiter ? 'Early-career IT support and systems candidate building toward networking and future security-focused work.' : isDemo ? `Interactive demo route for ${project?.name}.` : project?.description || homeSocialDescription,
     canonicalUrl: new URL(relativePath, profile.portfolioUrl).href,
     imageUrl: project
       ? new URL(project.image.replace(/^\//, ''), profile.portfolioUrl).href

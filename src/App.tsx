@@ -19,13 +19,13 @@ const ProjectDemoPage = lazy(() => import('./pages/ProjectDemoPage'))
 const RecruiterPage = lazy(() => import('./pages/RecruiterPage'))
 
 export default function App() {
-  useLenis()
   const location = useLocation()
-  const reducedMotion = useReducedMotionPreference()
   const portfolioMode = getPortfolioMode(location.pathname)
-  const [loading, setLoading] = useState(() => !reducedMotion && !sessionStorage.getItem('mahesh-os-loaded'))
+  const reducedMotion = useReducedMotionPreference()
+  useLenis(portfolioMode === 'story')
+  const [loading, setLoading] = useState(() => portfolioMode === 'story' && !reducedMotion && !sessionStorage.getItem('mahesh-os-loaded'))
   const complete = useCallback(() => { sessionStorage.setItem('mahesh-os-loaded', 'true'); setLoading(false) }, [])
   useEffect(() => { if (reducedMotion && loading) complete() }, [complete, loading, reducedMotion])
   useEffect(() => { document.documentElement.dataset.portfolioMode = portfolioMode }, [portfolioMode])
-  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main-content">SKIP TO CONTENT</a><RouteMetadata/><RouteAccessibility/><Analytics/><AnimatePresence>{loading && <LoadingScreen onComplete={complete}/>}</AnimatePresence><BackgroundEffects/><CustomCursor/><Navbar/><Suspense fallback={<div className="route-loading">LOADING MODULE…</div>}><Routes location={location} key={location.pathname}><Route path="/" element={<HomePage/>}/><Route path="/recruiter" element={<RecruiterPage/>}/><Route path="/projects/:slug/demo" element={<ProjectDemoPage/>}/><Route path="/projects/:slug" element={<ProjectPage/>}/><Route path="*" element={<HomePage/>}/></Routes></Suspense><Footer/></MotionConfig>
+  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main-content">SKIP TO CONTENT</a><RouteMetadata/><RouteAccessibility/><Analytics/><AnimatePresence>{loading && <LoadingScreen onComplete={complete}/>}</AnimatePresence><BackgroundEffects/>{portfolioMode === 'story' && <><CustomCursor/><Navbar/></>}<Suspense fallback={<div className="route-loading">LOADING MODULE…</div>}><Routes location={location} key={location.pathname}><Route path="/" element={<HomePage/>}/><Route path="/recruiter" element={<RecruiterPage/>}/><Route path="/projects/:slug/demo" element={<ProjectDemoPage/>}/><Route path="/projects/:slug" element={<ProjectPage/>}/><Route path="*" element={<HomePage/>}/></Routes></Suspense><Footer/></MotionConfig>
 }

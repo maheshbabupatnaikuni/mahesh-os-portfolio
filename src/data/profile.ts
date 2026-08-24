@@ -7,7 +7,7 @@ export type ResumeProfile = {
 }
 
 export const profile = {
-  fullName: 'Patnaikuni Mahesh Babu',
+  fullName: 'Mahesh Babu Patnaikuni',
   name: 'P. Mahesh Babu',
   brand: 'MAHESH OS',
   eyebrow: 'IT SUPPORT • NETWORKING • PRACTICAL SYSTEMS',
